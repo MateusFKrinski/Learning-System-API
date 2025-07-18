@@ -1,9 +1,8 @@
 const express = require("express");
+const routes = require("./routes");
 
 const app = express();
 
-app.use("/test", (req, res) => {
-  res.status(200).send({ message: "Operating" });
-});
+routes(app);
 
 module.exports = app;
