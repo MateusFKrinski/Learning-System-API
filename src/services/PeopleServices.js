@@ -7,8 +7,8 @@ class PeopleServices extends Services {
 
   async getEnrollmentStudent(id) {
     const student = await super.getById(id);
-    //const enrollmentList = await student.get__();
-    return enrollmentList;
+    console.log(typeof student.getEnrollment);
+    return await student.getEnrollment();
   }
 }
 

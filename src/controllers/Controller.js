@@ -6,6 +6,7 @@ class Controller {
   async getAll(req, res) {
     try {
       const data = await this.entityService.getAll();
+      console.log(!data);
       return res.status(200).json({ status: 200, message: "found", data });
     } catch (e) {}
   }
@@ -25,7 +26,6 @@ class Controller {
 
   async create(req, res) {
     const createData = req.body;
-
     try {
       const data = await this.entityService.create(createData);
       const db = await this.entityService.getById(Number(data.id));

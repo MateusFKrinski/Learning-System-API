@@ -23,7 +23,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: "people", key: "id" },
       },
-      course_category_id: {
+      category_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: "categories", key: "id" },

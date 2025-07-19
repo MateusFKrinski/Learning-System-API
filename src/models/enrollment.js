@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       Enrollment.belongsTo(models.People, {
         foreignKey: "student_id",
       });
-      Enrollment.belongsTo(models.Course, {
+      Enrollment.belongsTo(models.Courses, {
         foreignKey: "course_id",
       });
     }

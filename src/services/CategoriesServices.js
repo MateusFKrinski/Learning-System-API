@@ -2,7 +2,7 @@ const Services = require("./Services.js");
 
 class CategoriesServices extends Services {
   constructor() {
-    super("CourseCategories");
+    super("Categories");
   }
 }
 
