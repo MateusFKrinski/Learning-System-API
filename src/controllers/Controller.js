@@ -6,9 +6,10 @@ class Controller {
   async getAll(req, res) {
     try {
       const data = await this.entityService.getAll();
-      console.log(!data);
       return res.status(200).json({ status: 200, message: "found", data });
-    } catch (e) {}
+    } catch (e) {
+      return res.status(500).json({ status: 500, message: e.message });
+    }
   }
 
   async getById(req, res) {
@@ -21,7 +22,9 @@ class Controller {
           .json({ status: 400, message: "has not been found" });
       }
       return res.status(200).json({ status: 200, message: "found", data });
-    } catch (e) {}
+    } catch (e) {
+      return res.status(500).json({ status: 500, message: e.message });
+    }
   }
 
   async create(req, res) {
@@ -30,9 +33,11 @@ class Controller {
       const data = await this.entityService.create(createData);
       const db = await this.entityService.getById(Number(data.id));
       return res
-        .status(200)
-        .json({ status: 200, message: "created", data: db });
-    } catch (e) {}
+        .status(201)
+        .json({ status: 201, message: "created", data: db });
+    } catch (e) {
+      return res.status(500).json({ status: 500, message: e.message });
+    }
   }
 
   async update(req, res) {
@@ -49,7 +54,9 @@ class Controller {
       return res
         .status(200)
         .json({ status: 200, message: "updated", data: db });
-    } catch (e) {}
+    } catch (e) {
+      return res.status(500).json({ status: 500, message: e.message });
+    }
   }
 
   async delete(req, res) {
@@ -57,7 +64,9 @@ class Controller {
     try {
       await this.entityService.delete(Number(id));
       return res.status(200).json({ status: 200, message: "deleted" });
-    } catch (e) {}
+    } catch (e) {
+      return res.status(500).json({ status: 500, message: e.message });
+    }
   }
 }
 
