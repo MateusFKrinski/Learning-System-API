@@ -122,111 +122,88 @@ A API estará disponível em: `http://localhost:8080`
 
 A API é organizada em torno dos seguintes recursos principais: `/people`, `/courses`, `/categories` e `/enrollment`.
 
-### Endpoints de Pessoas (`/people`)
+### Pessoas (`/people`)
 
-### GET /people
+- `GET /people`  
+  Retorna uma lista de todas as pessoas ativas.
 
-Retorna uma lista de todas as pessoas cadastradas.
+- `GET /people/all`  
+  Retorna todas as pessoas cadastradas (inclusive inativas).
 
------
+- `GET /people/:id`  
+  Retorna os dados de uma pessoa específica.
 
-### GET /people/:id
+- `POST /people`  
+  Cria uma nova pessoa.
 
-Retorna os dados de uma pessoa específica com base no seu `id`.
+- `PUT /people/:id`  
+  Atualiza os dados de uma pessoa existente.
 
------
+- `DELETE /people/:id`  
+  Remove (ou desativa) uma pessoa do sistema.
 
-### GET /people/:studentId/enrollment
+---
 
-Retorna todas as matrículas de um estudante específico (pessoa com `studentId`).
+### Matrículas (`/people/enrollment`)
 
------
+- `GET /people/enrollment/all`  
+  Retorna todas as matrículas cadastradas.
 
-### POST /people
+- `GET /people/:student_id/enrollment`  
+  Retorna todas as matrículas de um estudante.
 
-Cria uma nova pessoa. Requer um corpo de requisição com os dados da pessoa.
+- `GET /people/:student_id/enrollment/actives`  
+  Retorna apenas as matrículas ativas de um estudante.
 
------
+- `GET /people/:student_id/enrollment/:id`  
+  Retorna uma matrícula específica de um estudante.
 
-### POST /people/:studentId/enrollment
+- `POST /people/enrollment`  
+  Cria uma nova matrícula.
 
-Cria uma nova matrícula para um estudante específico. Requer um corpo de requisição com os dados da matrícula.
+- `PUT /people/enrollment/:id`  
+  Atualiza os dados de uma matrícula existente.
 
------
+- `DELETE /people/enrollment/:id`  
+  Remove (ou cancela) uma matrícula.
 
-### PUT /people/:id
+---
 
-Atualiza os dados de uma pessoa existente com base no `id` fornecido.
+### Cursos (`/courses`)
 
------
+- `GET /courses`  
+  Retorna uma lista de todos os cursos.
 
-### DELETE /people/:id
+- `GET /courses/:id`  
+  Retorna os dados de um curso específico.
 
-Remove uma pessoa do sistema.
+- `POST /courses`  
+  Cria um novo curso.
 
------
+- `PUT /courses/:id`  
+  Atualiza os dados de um curso existente.
 
-### Endpoints de Cursos (`/courses`)
+- `DELETE /courses/:id`  
+  Remove um curso do sistema.
 
-### GET /courses
+---
 
-Retorna uma lista de todos os cursos.
+### Categorias (`/categories`)
 
------
+- `GET /categories`  
+  Retorna uma lista de todas as categorias.
 
-### GET /courses/:id
+- `GET /categories/:id`  
+  Retorna os dados de uma categoria específica.
 
-Retorna os dados de um curso específico com base no seu `id`.
+- `POST /categories`  
+  Cria uma nova categoria.
 
------
+- `PUT /categories/:id`  
+  Atualiza os dados de uma categoria existente.
 
-### POST /courses
-
-Cria um novo curso. Requer um corpo de requisição com os dados do curso.
-
------
-
-### PUT /courses/:id
-
-Atualiza os dados de um curso existente com base no `id` fornecido.
-
------
-
-### DELETE /courses/:id
-
-Remove um curso do sistema.
-
------
-
-### Endpoints de Categorias (`/categories`)
-
-### GET /categories
-
-Retorna uma lista de todas as categorias.
-
------
-
-### GET /categories/:id
-
-Retorna os dados de uma categoria específica com base no seu `id`.
-
------
-
-### POST /categories
-
-Cria uma nova categoria. Requer um corpo de requisição com os dados da categoria.
-
------
-
-### PUT /categories/:id
-
-Atualiza os dados de uma categoria existente com base no `id` fornecido.
-
------
-
-### DELETE /categories/:id
-
-Remove uma categoria do sistema.
+- `DELETE /categories/:id`  
+  Remove uma categoria do sistema.
 
 -----
 
